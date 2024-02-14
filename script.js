@@ -6,12 +6,13 @@ const wrapperRect = wrapper.getBoundingClientRect();
 const noBtnRect = noBtn.getBoundingClientRect();
 const questionMark = document.querySelector('.questionMark')
 const loveMark = document.querySelector('.loveMark')
+var a = new Audio('ddlj.mp3');
 
 loveMark.style.display ='none';
 yesBtn.addEventListener('click', () => {
-
-    var a = new Audio('ddlj.mp3');
-    a.play()
+    a.oncanplaythrough = function(){
+        a.play();
+        }
     question.innerHTML = 'I Love You :)';
     question.style.position = "relative"; 
     question.style.top = "50px";   
