@@ -22,9 +22,18 @@ yesBtn.addEventListener('click', () => {
     questionMark.style.display ='none';
     
 });
+// Add smooth transition to the No button
+wrapper.style.position = 'relative';  // Ensure wrapper is the positioning context
+noBtn.style.transition = 'all 0.3s ease-in-out';
+noBtn.style.position = 'absolute';  // Position relative to wrapper
+
 noBtn.addEventListener('mouseover', () => {
-    const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
-    const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) + 1;
+    // Calculate random position within wrapper boundaries
+    const i = Math.floor(Math.random() * (wrapper.offsetWidth - noBtn.offsetWidth));
+    const j = Math.floor(Math.random() * (wrapper.offsetHeight - noBtn.offsetHeight));
+    
+    // Add transform for smoother animation, keeping button within wrapper
     noBtn.style.left = i + 'px';
     noBtn.style.top = j + 'px';
+    noBtn.style.transform = 'translate(0, 0)';  // Reset transform
 });
